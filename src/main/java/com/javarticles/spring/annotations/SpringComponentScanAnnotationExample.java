@@ -1,5 +1,8 @@
 package com.javarticles.spring.annotations;
 
+import com.javarticles.spring.annotations.packageA.BeanA;
+import com.javarticles.spring.annotations.packageB.BeanB;
+import com.javarticles.spring.annotations.packageC.BeanC2;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -7,10 +10,11 @@ import org.springframework.context.annotation.Configuration;
 import com.javarticles.spring.annotations.packageC.BeanC1;
 
 @Configuration
-@ComponentScan(basePackages = {
-        "com.javarticles.spring.annotations.packageA",
-        "com.javarticles.spring.annotations.packageB",
-        "com.javarticles.spring.annotations.packageE" }, basePackageClasses = BeanC1.class)
+@ComponentScan( basePackageClasses = {BeanC1.class, BeanA.class, BeanB.class})
+//@ComponentScan(basePackages = {
+//        "com.javarticles.spring.annotations.packageA",
+//        "com.javarticles.spring.annotations.packageB",
+//        "com.javarticles.spring.annotations.packageE" }, basePackageClasses = BeanC1.class)
 public class SpringComponentScanAnnotationExample {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
