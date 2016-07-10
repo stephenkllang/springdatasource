@@ -10,11 +10,13 @@ import org.springframework.context.annotation.Configuration;
 import com.javarticles.spring.annotations.packageC.BeanC1;
 
 @Configuration
-@ComponentScan( basePackageClasses = {BeanC1.class, BeanA.class, BeanB.class})
+//@ComponentScan( basePackageClasses = {BeanC1.class, BeanA.class, BeanB.class})
 //@ComponentScan(basePackages = {
 //        "com.javarticles.spring.annotations.packageA",
 //        "com.javarticles.spring.annotations.packageB",
 //        "com.javarticles.spring.annotations.packageE" }, basePackageClasses = BeanC1.class)
+@ComponentScan(basePackages = {
+        "com.javarticles.spring.annotations" })
 public class SpringComponentScanAnnotationExample {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
@@ -27,6 +29,8 @@ public class SpringComponentScanAnnotationExample {
                     + ctx.getBean("beanA"));
             System.out.println("BeanB: "
                     + ctx.getBean("beanB"));
+            System.out.println("BeanBB: "
+                    + ctx.getBean("beanBB"));
             System.out.println("BeanC1: "
                     + ctx.getBean("beanC1"));
             System.out.println("BeanC2: "
